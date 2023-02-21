@@ -1,8 +1,8 @@
 from aiogram.utils import executor
-from config_bot import user
-from creat_bot import dp
+from interaction import user
+from creat_bot import dispatcher
 
-user.start_handler(dp)
+user.start_handler(dispatcher)
 
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True)
+    executor.start_polling(dispatcher, skip_updates=True)

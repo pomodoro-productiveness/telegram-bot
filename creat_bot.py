@@ -3,4 +3,4 @@ from aiogram.dispatcher import Dispatcher
 import os
 
 bot = Bot(token=os.environ['TOKEN'])
-dp = Dispatcher(bot)
+dispatcher = Dispatcher(bot)
