@@ -1,13 +1,18 @@
 import json
 import os
+
 import requests
+
+from util.constants import URL_BASE
+
+base_url = os.environ['HOST'] + URL_BASE
 
 
 def get(url: str):
-    return requests.get(os.environ['HOST'] + url)
+    return requests.get(base_url + url)
 
 
 def post(url: str, body: object):
-    body = json.dumps(body)
+    json_body = json.dumps(body, default=lambda o: o.__dict__, sort_keys=True, indent=4)
     headers = {'Content-Type': 'application/json'}
-    return requests.request("POST", os.environ['HOST'] + url, headers=headers, data=body)
+    return requests.request("POST", base_url + url, headers=headers, data=json_body)
