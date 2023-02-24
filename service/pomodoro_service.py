@@ -3,7 +3,6 @@ from rest import http_backend_client
 
 
 def save_pomodoro_automatically(key):
-    body = PomodoroAutoSaveRequest(1, key)
-    body = body.json()
-    response = http_backend_client.post("/timer/v1/pomodoro/auto", body)
+    auto_save_request = PomodoroAutoSaveRequest(numbersToSaveAutomatically=1, tagGroupId=key)
+    response = http_backend_client.post("/pomodoro/auto", auto_save_request.json())
     return response.status_code
