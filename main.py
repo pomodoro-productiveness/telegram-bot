@@ -1,7 +1,7 @@
 from aiogram.utils import executor
-
 from creat_bot import dispatcher
 from interaction import user
+
 
 user.start_handler(dispatcher)
 
